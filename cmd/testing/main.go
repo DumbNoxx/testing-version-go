@@ -36,9 +36,10 @@ var (
 )
 
 func init() {
-	versionFlag = flag.Bool("v", false, "")
+	versionFlag = flag.Bool("v", false, "View Current Version")
 	isUpgrade = flag.Bool("is-upgrade", false, "Internal use for hot-swap")
 }
+
 func executeHandoff(once *sync.Once, cancel context.CancelFunc, pipe chan<- *pipelines.LogEntry, wgProc, wgProd *sync.WaitGroup) {
 	once.Do(func() {
 		fmt.Println("[System] Preparing handoff, flushing buffers...")
@@ -234,6 +235,7 @@ func autoUpdate(ctx context.Context, cancel context.CancelFunc, pipe chan<- *pip
 func main() {
 	flag.Parse()
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
+	stopChan := make(chan struct{})
 	defer cancel()
 	pipe := make(chan *pipelines.LogEntry, 100)
 	var (
@@ -263,31 +265,26 @@ func main() {
 				fmt.Println("\n[System] Update signal received! Starting auto-update...")
 				ticker := time.NewTicker(1 * time.Second)
 				count := 1
-				updateDone := false
 				defer ticker.Stop()
-				for !updateDone {
-					select {
-					case <-ticker.C:
-						if count != 5 {
-							fmt.Printf("%d..", count)
-						}
-						if count == 5 {
-							fmt.Printf("%d\n", count)
-							fmt.Println("Updating...")
-							autoUpdate(ctx, cancel, pipe, &wgProcessor, &wgProducer, &once)
-							updateDone = true
-						}
-						count++
-					case <-ctx.Done():
-						return
+				select {
+				case <-ticker.C:
+					if count != 5 {
+						fmt.Printf("%d..", count)
 					}
-
+					if count == 5 {
+						fmt.Printf("%d\nUpdating...", count)
+						autoUpdate(ctx, cancel, pipe, &wgProcessor, &wgProducer, &once)
+					}
+					count++
+				case <-ctx.Done():
+					return
 				}
-				<-ctx.Done()
+
 				return
 			}
 			if sig == os.Interrupt {
 				cancel()
+				close(stopChan)
 			}
 		}
 	}()
@@ -298,6 +295,7 @@ func main() {
 		cmd.Run()
 		return
 	}
+	fmt.Println(version)
 
 	options.CacheDirGenerate()
 
@@ -310,7 +308,7 @@ func main() {
 	wgProducer.Add(1)
 	go viewNewVersion(ctx, &wgProducer)
 
-	<-ctx.Done()
+	<-stopChan
 
 	executeHandoff(&once, cancel, pipe, &wgProcessor, &wgProducer)
 
