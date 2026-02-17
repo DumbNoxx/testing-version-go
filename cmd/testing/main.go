@@ -246,7 +246,7 @@ func main() {
 	)
 
 	if *versionFlag {
-		fmt.Println("volvemo a probar")
+		fmt.Println("volvemo a probar, golis")
 		fmt.Println(getVersion())
 		os.Exit(0)
 	}
