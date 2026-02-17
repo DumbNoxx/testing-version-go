@@ -244,7 +244,7 @@ func main() {
 	)
 
 	if *versionFlag {
-		fmt.Println("Holis")
+		fmt.Println("Holis guapote")
 		fmt.Println(getVersion())
 		os.Exit(0)
 	}
