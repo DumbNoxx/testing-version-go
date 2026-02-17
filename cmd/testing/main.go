@@ -246,7 +246,7 @@ func main() {
 	)
 
 	if *versionFlag {
-		fmt.Println("volvemo a probar, golis")
+		fmt.Println("volvemo a probar")
 		fmt.Println(getVersion())
 		os.Exit(0)
 	}
@@ -265,21 +265,26 @@ func main() {
 				fmt.Println("\n[System] Update signal received! Starting auto-update...")
 				ticker := time.NewTicker(1 * time.Second)
 				count := 1
+				updateDone := false
 				defer ticker.Stop()
-				select {
-				case <-ticker.C:
-					if count != 5 {
-						fmt.Printf("%d..", count)
+				for !updateDone {
+					select {
+					case <-ticker.C:
+						if count != 5 {
+							fmt.Printf("%d..", count)
+						}
+						if count == 5 {
+							fmt.Printf("%d\n", count)
+							fmt.Printf("%d\nUpdating...", count)
+							autoUpdate(ctx, cancel, pipe, &wgProcessor, &wgProducer, &once)
+							updateDone = true
+						}
+						count++
+					case <-ctx.Done():
+						return
 					}
-					if count == 5 {
-						fmt.Printf("%d\nUpdating...", count)
-						autoUpdate(ctx, cancel, pipe, &wgProcessor, &wgProducer, &once)
-					}
-					count++
-				case <-ctx.Done():
-					return
-				}
 
+				}
 				return
 			}
 			if sig == os.Interrupt {
