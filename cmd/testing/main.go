@@ -274,7 +274,6 @@ func main() {
 							fmt.Printf("%d..", count)
 						}
 						if count == 5 {
-							fmt.Printf("%d\n", count)
 							fmt.Printf("%d\nUpdating...", count)
 							autoUpdate(ctx, cancel, pipe, &wgProcessor, &wgProducer, &once)
 							updateDone = true
