@@ -208,7 +208,7 @@ func autoUpdate(ctx context.Context, cancel context.CancelFunc, pipe chan<- *pip
 			return
 		}
 		if strings.HasPrefix(currentLocation, gopath) {
-			cmd := exec.Command("go", "install", "github.com/DumbNoxx/goxe/cmd/goxe@latest")
+			cmd := exec.Command("go", "install", "github.com/DumbNoxx/testing-version-go/cmd/testing@latest")
 			err := cmd.Run()
 			if err != nil {
 				log.Println(err)
