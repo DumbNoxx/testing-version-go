@@ -244,7 +244,6 @@ func main() {
 	)
 
 	if *versionFlag {
-		fmt.Println("Holis guapote como tais? ")
 		fmt.Println(getVersion())
 		os.Exit(0)
 	}
