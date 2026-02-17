@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 // Function to read the received information

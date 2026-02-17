@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DumbNoxx/goxe/internal/options"
-	"github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	"github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 func File(logs []map[string]map[string]*pipelines.LogStats) {

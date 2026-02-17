@@ -1,6 +1,6 @@
 version: 2
 builds:
-  - main: ./cmd/goxe
+  - main: ./cmd/testing/
     env: [CGO_ENABLED=0]
     goos:
       - linux
@@ -23,7 +23,7 @@ archives:
 nfpms:
   - maintainer: Dylan Marcano (Nxus) <nxusdev@protonmail.com>
     description: Is a log reduction tool that normalizes, filters, and aggregates repeated messages to reduce noise and storage.
-    homepage: https://github.com/DumbNoxx/Goxe
+    homepage: https://github.com/DumbNoxx/testing-version-go
     license: Apache-2.0
     formats:
       - deb

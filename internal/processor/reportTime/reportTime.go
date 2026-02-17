@@ -3,9 +3,9 @@ package reporttime
 import (
 	"time"
 
-	"github.com/DumbNoxx/goxe/internal/options"
-	"github.com/DumbNoxx/goxe/internal/processor"
-	"github.com/DumbNoxx/goxe/internal/utils"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	"github.com/DumbNoxx/testing-version-go/internal/processor"
+	"github.com/DumbNoxx/testing-version-go/internal/utils"
 )
 
 func GetReportFileTime() {

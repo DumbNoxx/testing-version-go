@@ -8,14 +8,14 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/DumbNoxx/goxe/internal/exporter"
-	"github.com/DumbNoxx/goxe/internal/options"
-	burstdetection "github.com/DumbNoxx/goxe/internal/processor/burstDetection"
-	"github.com/DumbNoxx/goxe/internal/processor/cluster"
-	"github.com/DumbNoxx/goxe/internal/processor/filters"
-	"github.com/DumbNoxx/goxe/internal/processor/sanitizer"
-	"github.com/DumbNoxx/goxe/internal/utils"
-	"github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/internal/exporter"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	burstdetection "github.com/DumbNoxx/testing-version-go/internal/processor/burstDetection"
+	"github.com/DumbNoxx/testing-version-go/internal/processor/cluster"
+	"github.com/DumbNoxx/testing-version-go/internal/processor/filters"
+	"github.com/DumbNoxx/testing-version-go/internal/processor/sanitizer"
+	"github.com/DumbNoxx/testing-version-go/internal/utils"
+	"github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 var (

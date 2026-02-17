@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/DumbNoxx/goxe/pkg/options"
+	"github.com/DumbNoxx/testing-version-go/pkg/options"
 )
 
 var Config = ConfigFile()

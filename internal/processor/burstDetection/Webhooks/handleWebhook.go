@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DumbNoxx/goxe/internal/options"
-	pkg "github.com/DumbNoxx/goxe/pkg/options"
-	"github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	pkg "github.com/DumbNoxx/testing-version-go/pkg/options"
+	"github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 func HandleWebhook(msg string, stats *pipelines.LogBurst) {

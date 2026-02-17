@@ -1,6 +1,6 @@
 package cluster
 
-import "github.com/DumbNoxx/goxe/internal/processor/sanitizer"
+import "github.com/DumbNoxx/testing-version-go/internal/processor/sanitizer"
 
 func Cluster(log []byte, idLog string) []byte {
 	text := sanitizer.Sanitizer(log, idLog)

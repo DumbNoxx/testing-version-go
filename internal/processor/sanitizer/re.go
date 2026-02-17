@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/DumbNoxx/goxe/internal/options"
-	"github.com/DumbNoxx/goxe/internal/processor/filters"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	"github.com/DumbNoxx/testing-version-go/internal/processor/filters"
 )
 
 var (

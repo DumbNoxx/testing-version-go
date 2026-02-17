@@ -4,9 +4,9 @@ import (
 	"slices"
 	"time"
 
-	"github.com/DumbNoxx/goxe/internal/options"
-	webhooks "github.com/DumbNoxx/goxe/internal/processor/burstDetection/Webhooks"
-	"github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
+	webhooks "github.com/DumbNoxx/testing-version-go/internal/processor/burstDetection/Webhooks"
+	"github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 var (

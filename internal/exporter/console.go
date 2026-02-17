@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/DumbNoxx/goxe/internal/utils/colors"
-	pipelines "github.com/DumbNoxx/goxe/pkg/pipelines"
+	"github.com/DumbNoxx/testing-version-go/internal/utils/colors"
+	pipelines "github.com/DumbNoxx/testing-version-go/pkg/pipelines"
 )
 
 // This function receives the map of logs created by the processor

@@ -3,7 +3,7 @@ package cluster
 import (
 	"bytes"
 
-	"github.com/DumbNoxx/goxe/internal/processor/sanitizer"
+	"github.com/DumbNoxx/testing-version-go/internal/processor/sanitizer"
 )
 
 func NormalizeLog(log []byte) []byte {

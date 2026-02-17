@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/DumbNoxx/goxe/internal/options"
+	"github.com/DumbNoxx/testing-version-go/internal/options"
 )
 
 var TimeReportFile = UserConfigHour()
