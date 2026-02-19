@@ -1,5 +1,3 @@
-# goxe
-
 ![Made with VHS](https://vhs.charm.sh/vhs-5h1jmrUc7TMULoD2Mo48Ci.gif)
 
 
